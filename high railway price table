@@ -1,0 +1,34 @@
+public static void main(String[] args) {
+		String atations[] = {"台北","板橋","桃園",
+				"新竹","台中","嘉義","台南","左營"};
+		
+		int prices_taipei[] = {1490,1350,1080,700,290,160,30};
+		int prices[][] = new int[7][];
+		for(int i = 0;i<prices.length;i++) {
+			prices[i] = new int[7-i];
+		}
+		for(int i = 0;i<prices_taipei.length;i++) {
+			prices[0][i] = prices_taipei[i];
+		}
+		
+		//
+		
+		for(int i = 0;i<atations.length;i++) {
+			System.out.print("\t" + atations[atations.length-i-1]);
+		}
+		System.out.println();
+		int j;
+		for(int i = 0;i<prices.length;i++) {
+			System.out.print(atations[i] + "\t");
+			for( j = 0;j<prices[i].length;j++) {
+				System.out.print(prices[i][j] + "\t");
+				prices[i+1][j] = prices[i][j] - prices[i][prices[i].length-1];
+			}
+			
+			System.out.println(" -");
+			
+			
+		}
+		
+		System.out.println(atations[atations.length-1] + "\t"+" -");
+	}
